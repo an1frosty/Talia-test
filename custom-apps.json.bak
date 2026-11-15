@@ -1,0 +1,2 @@
+[ { "Name":"My App","Category":"Утилиты","Description":"d","WingetId":"Pub.MyApp","GitHubRepo":null,"IsCustom":true,
+    "IsSelected":true,"Status":"Установлена","InstalledPath":"C:\\Old","InstalledVersion":"9.9" } ]

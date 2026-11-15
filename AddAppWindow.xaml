@@ -1,0 +1,38 @@
+<Window x:Class="WinSetup.AddAppWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Talia — Новая программа" Icon="Talia.ico"
+        Width="520" Height="580" MinWidth="440" MinHeight="420"
+        WindowStartupLocation="CenterOwner" ResizeMode="CanResize"
+        Background="{StaticResource BrushObsidian}" Foreground="{StaticResource BrushText}"
+        FontFamily="{StaticResource TaliaFont}" FontSize="13" UseLayoutRounding="True">
+    <Grid Margin="24,22,24,22">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="0,0,0,16">
+            <TextBlock x:Name="HeaderText" Text="Новая программа" Style="{StaticResource PageTitle}"/>
+            <TextBlock Text="Добавь приложение в личный каталог Talia. Для установки используется точный ID пакета WinGet." Style="{StaticResource PageSubtitle}"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="0,0,6,0">
+                <TextBlock Text="Название" Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="NameBox" Height="40"/>
+                <TextBlock Text="Категория" Style="{StaticResource FieldLabel}" Margin="0,14,0,6"/>
+                <TextBox x:Name="CategoryBox" Height="40" Text="Мои программы"/>
+                <TextBlock Text="Описание" Style="{StaticResource FieldLabel}" Margin="0,14,0,6"/>
+                <TextBox x:Name="DescriptionBox" Height="72" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top"/>
+                <TextBlock Text="WinGet Package ID" Style="{StaticResource FieldLabel}" Margin="0,14,0,6"/>
+                <TextBox x:Name="IdBox" Height="40" Tag="Например: VideoLAN.VLC"/>
+                <TextBlock Text="ID должен быть проверен в каталоге WinGet (winget search …)." Style="{StaticResource CaptionText}" TextWrapping="Wrap" Margin="0,6,0,0"/>
+                <TextBlock x:Name="ErrorText" Foreground="{StaticResource BrushRedText}" FontSize="12" TextWrapping="Wrap" Margin="0,12,0,0"/>
+            </StackPanel>
+        </ScrollViewer>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button Content="Отмена" MinWidth="100" Height="38" Margin="0,0,8,0" Click="Cancel_Click"/>
+            <Button x:Name="SaveButton" Content="Добавить" Style="{StaticResource PrimaryButton}" MinWidth="120" Height="38" Click="Add_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

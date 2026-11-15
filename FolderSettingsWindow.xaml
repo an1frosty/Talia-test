@@ -1,0 +1,38 @@
+<Window x:Class="WinSetup.FolderSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Talia — Пути и папки" Icon="Talia.ico"
+        Width="680" Height="480" MinWidth="520" MinHeight="380"
+        WindowStartupLocation="CenterOwner" ResizeMode="CanResize"
+        Background="{StaticResource BrushObsidian}" Foreground="{StaticResource BrushText}"
+        FontFamily="{StaticResource TaliaFont}" FontSize="13" UseLayoutRounding="True">
+    <Grid Margin="24,22,24,22">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="0,0,0,16">
+            <TextBlock Text="Пути и папки" Style="{StaticResource PageTitle}"/>
+            <TextBlock Text="Добавляй готовые или собственные папки. Они будут созданы только после нажатия «Создать папки». Существующие файлы не переносятся." Style="{StaticResource PageSubtitle}"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="FolderList"/>
+            <StackPanel Grid.Column="1" Margin="12,0,0,0" MinWidth="150">
+                <TextBlock Text="Добавить" Style="{StaticResource FieldLabel}"/>
+                <Button Content="+ Своя папка" Click="AddCustom_Click" Margin="0,0,0,8"/>
+                <Button Content="Games (D:)" Tag="D:\Games" Click="Preset_Click" Margin="0,0,0,8"/>
+                <Button Content="Programs (D:)" Tag="D:\Programs" Click="Preset_Click" Margin="0,0,0,8"/>
+                <Button Content="Downloads (D:)" Tag="D:\Downloads" Click="Preset_Click" Margin="0,0,0,16"/>
+                <Button Content="Удалить выбранную" Style="{StaticResource DangerButton}" Click="Remove_Click"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button Content="Готово" Style="{StaticResource PrimaryButton}" MinWidth="110" Height="38" Click="Close_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
